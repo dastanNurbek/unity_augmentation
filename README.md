@@ -26,7 +26,7 @@ unity_augmentation/
 │   └── ...
 ├── .gitattributes                       # Git LFS configuration
 ├── README.md                            # This file
-├── environment.yml                      # Conda environment file (to be added)
+├── environment.yml                      # Conda environment file 
 ├── best_fire_model_no_unity.pth        # Best model without Unity images
 ├── best_fire_model_with_unity.pth      # Best model with Unity images
 ├── resnet_with_no_unity.ipynb          # Training notebook without Unity images
