@@ -199,8 +199,6 @@ The notebooks will generate comparative results showing:
 
 [Add your license information here]
 
-```
-
 ## Contact
 
 dastan.nurbekuly@stud.plus.ac.at
