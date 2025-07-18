@@ -13,32 +13,33 @@ This project implements a deep learning approach to fire detection using a pre-t
 
 ```
 fire-detection/
-├── notebooks/
-│   ├── fire_detection_standard.ipynb    # Training without Unity images
-│   └── fire_detection_unity.ipynb       # Training with Unity images
-├── resnet_model_v2.py                    # Core model implementation
-├── environment.yml                       # Conda environment file
-├── README.md                            # This file
-├── preprocessed/                        # Your scene-based dataset
+├── sen2fire/                            # Scene-based fire dataset
 │   ├── scene1/
 │   │   ├── fire/
 │   │   └── no_fire/
 │   └── scene2/
 │       ├── fire/
 │       └── no_fire/
-└── unity_generated/                     # Unity synthetic fire images
-    ├── fire_001.jpg
-    ├── fire_002.jpg
-    └── ...
+├── unity_generated/                     # Unity synthetic fire images
+│   ├── fire_001.jpg
+│   ├── fire_002.jpg
+│   └── ...
+├── .gitattributes                       # Git LFS configuration
+├── README.md                            # This file
+├── environment.yml                      # Conda environment file (to be added)
+├── best_fire_model_no_unity.pth        # Best model without Unity images
+├── best_fire_model_with_unity.pth      # Best model with Unity images
+├── resnet_with_no_unity.ipynb          # Training notebook without Unity images
+└── resnet_with_unity.ipynb             # Training notebook with Unity images
 ```
 
 ## Dataset Structure
 
 The model expects your dataset to be organized as follows:
 
-### Real-world Images (`preprocessed/`)
+### Real-world Images (`sen2fire/`)
 ```
-preprocessed/
+sen2fire/
 ├── scene1/
 │   ├── fire/          # Fire images from scene 1
 │   └── no_fire/       # No-fire images from scene 1
@@ -87,17 +88,17 @@ unity_generated/
 
 ### Option 1: Standard Training (Without Unity Images)
 
-Use the `fire_detection_standard.ipynb` notebook for training with only real-world images.
+Use the `resnet_with_no_unity.ipynb` notebook for training with only real-world images.
 
 1. **Open the notebook**
    ```bash
-   jupyter notebook notebooks/fire_detection_standard.ipynb
+   jupyter notebook resnet_with_no_unity.ipynb
    ```
 
 2. **Update dataset paths** in the notebook:
    ```python
-   BASE_PATH = "./preprocessed"  # Path to your scene folders
-   UNITY_IMAGES_PATH = None      # Disabled for standard training
+   BASE_PATH = "./sen2fire"              # Path to your scene folders
+   UNITY_IMAGES_PATH = None              # Disabled for standard training
    ```
 
 3. **Configure training parameters**:
@@ -112,16 +113,16 @@ Use the `fire_detection_standard.ipynb` notebook for training with only real-wor
 
 ### Option 2: Unity-Enhanced Training
 
-Use the `fire_detection_unity.ipynb` notebook for training with Unity-generated synthetic images.
+Use the `resnet_with_unity.ipynb` notebook for training with Unity-generated synthetic images.
 
 1. **Open the notebook**
    ```bash
-   jupyter notebook notebooks/fire_detection_unity.ipynb
+   jupyter notebook resnet_with_unity.ipynb
    ```
 
 2. **Update dataset paths** in the notebook:
    ```python
-   BASE_PATH = "./preprocessed"
+   BASE_PATH = "./sen2fire"
    UNITY_IMAGES_PATH = "./unity_generated"  # Path to Unity images
    ```
 
@@ -172,7 +173,8 @@ Use the `fire_detection_unity.ipynb` notebook for training with Unity-generated 
 ## Expected Outputs
 
 After training, you'll get:
-- `best_fire_model.pth`: Best performing model weights
+- `best_fire_model_no_unity.pth`: Best performing model without Unity images
+- `best_fire_model_with_unity.pth`: Best performing model with Unity images
 - Training history plots (loss and accuracy curves)
 - Classification report with precision, recall, and F1-scores
 - Confusion matrix visualization
