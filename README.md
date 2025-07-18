@@ -49,6 +49,8 @@ sen2fire/
 └── ...
 ```
 
+<sup>†</sup> **Sen2Fire Dataset**: This work uses the *Sen2Fire* dataset available at [https://zenodo.org/records/10881058](https://zenodo.org/records/10881058), originally provided by Rodríguez, Yan, and others. The dataset is licensed under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/), which permits use, sharing, and adaptation with appropriate credit.
+
 ### Unity-Generated Images (`unity_generated/`)
 ```
 unity_generated/
