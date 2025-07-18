@@ -12,7 +12,7 @@ This project implements a deep learning approach to fire detection using a pre-t
 ## Repository Structure
 
 ```
-fire-detection/
+unity_augmentation/
 ├── sen2fire/                            # Scene-based fire dataset
 │   ├── scene1/
 │   │   ├── fire/
@@ -21,8 +21,8 @@ fire-detection/
 │       ├── fire/
 │       └── no_fire/
 ├── unity_generated/                     # Unity synthetic fire images
-│   ├── fire_001.jpg
-│   ├── fire_002.jpg
+│   ├── area_1_1.png
+│   ├── area_1_2.png
 │   └── ...
 ├── .gitattributes                       # Git LFS configuration
 ├── README.md                            # This file
@@ -188,29 +188,6 @@ The notebooks will generate comparative results showing:
 - **Training stability** and convergence patterns
 - **Generalization performance** on test data
 
-## Troubleshooting
-
-### Common Issues
-
-1. **CUDA out of memory**
-   - Reduce batch size: `BATCH_SIZE = 16`
-   - Enable gradient checkpointing if available
-
-2. **Dataset not found**
-   - Verify your dataset paths in the notebook
-   - Ensure folder structure matches the expected format
-
-3. **Low performance**
-   - Increase training epochs
-   - Adjust learning rate
-   - Check class balance in your dataset
-
-### GPU Memory Optimization
-```python
-# Add to notebook if experiencing memory issues
-torch.cuda.empty_cache()
-```
-
 ## Contributing
 
 1. Fork the repository
@@ -222,21 +199,11 @@ torch.cuda.empty_cache()
 
 [Add your license information here]
 
-## Citation
-
-If you use this work in your research, please cite:
-```bibtex
-@misc{fire-detection-resnet,
-  title={Fire Detection with ResNet50: Unity-Enhanced Training Approach},
-  author={[Your Name]},
-  year={2024},
-  howpublished={\url{[Your Repository URL]}}
-}
 ```
 
 ## Contact
 
-[Your contact information]
+dastan.nurbekuly@stud.plus.ac.at
 
 ---
 
