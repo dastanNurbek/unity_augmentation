@@ -71,7 +71,7 @@ unity_generated/
 1. **Clone the repository**
    ```bash
    git clone <your-repo-url>
-   cd fire-detection
+   cd unity_augmentation
    ```
 
 2. **Create and activate the conda environment**
